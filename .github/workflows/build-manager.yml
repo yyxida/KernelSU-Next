@@ -86,6 +86,7 @@ jobs:
       - name: Spoof Package ID
         if: matrix.spoofed == true
         run: |
+          sed -i 's#<string name="app_name" translatable="false">.*</string>#<string name="app_name" translatable="false">Settings</string>#' app/src/main/res/values/strings.xml
           chmod +x spoof
           ./spoof
 
